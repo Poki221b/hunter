@@ -34,6 +34,7 @@
       <li><a href="" class="action-btn">SHOP</a></li>
     </div>
   </header>
+
   <section class="hero">
     <div class="container">
       <div class="wrapper">
@@ -42,7 +43,13 @@
         <p>Ispunili smo zadatak kao i uvek da ponudimo najbolje kolekcije za muški deo stanovništva. Moderan dizajn i unikatni modeli naše kolekcije koji su prepoznatljivi po svojoj originalnosti čine našu ponudu još bogatijom! Hunterova kolekcija takođe simbolizuje luksuznu čaroliju elegantnih slim odela koja predstavlja džentlmena koji je svestan svog stila. Naš tim u Hunteru je tu za Vas da odgovarajuću odeću, bez obzira da li su to košulje, sakoi, pantalone, farmerice ili odela u pitanju, može učiniti da se izdvojite iz gomile. Hunterov tim pokreće neverovatnu maštu stavljajući akcenat na prekrasne boje naše kolekcije. Zato, kako biste upotpunili svoj stil i učinili ga jedinstvenim u nekoj svečanoj prilici, da li je to svadba, matura...ili neki lud provod posetite nas u <span class="bold">HUNTER</span>-u.</p>
         <a href="shop.html" class="link-btn-shop">SHOP</a>
       </div>
-      <img name='slide' class="hero-img" src="images/Plavo-Strukirano-Odelo.jpg" alt="plavo strukirano odelo">
+      <div class="hero">
+        <img src="images/Plavo-Strukirano-Odelo.jpg" class="hero-img .active">
+        <img src="images/Sivo-Odelo-sa-Prslukom.jpg" class="hero-img">
+        <img src="images/Krem-Odelo.jpeg" class="hero-img">
+      </div>
+      
+      
     </div>
   </section>
 
@@ -52,20 +59,35 @@
     <button class="nxt-btn"><img src="images/arrow.png" alt=""></button>
     <div class="product-container">
         <!-- Product cards go here -->
+        <div class="product-card">
+          <div class="product-image">
+            <span class="discount-tag">30% off</span>
+            <img src="images/12.png" class="product-thumb" alt="">
+            <button class="card-btn">add to wishlist</button>
+          </div>
+          <div class="product-info">
+            <h2 class="product-brand">${title}</h2>
+            <p class="product-short-description">${category}</p>
+            <span class="price">${price}</span><span class="actual-price">9490,00</span>
+          </div>
+        </div>
+        <!-- Više proizvoda -->
     </div>
   </section>
 
   <hr>
 
-  <!-- CATEGORIES  -->
+  <!-- CATEGORIES -->
   <section class="categories">
     <h2 class="product-category">popularne kategorije</h2>
-    <div class="category-icons-wrapper" id="category-icons-wrapper">
-      <!-- Category icons will be dynamically added here -->
+    <div class="category-carousel">
+      <button class="pre-btn-ctg"><img src="images/arrow.png" alt="Prev"></button>
+      <div class="category-icons-wrapper" id="category-icons-wrapper">
+        <!-- Category icons will be dynamically added here -->
+      </div>
+      <button class="nxt-btn-ctg"><img src="images/arrow.png" alt="Next"></button>
     </div>
     <div class="product-container-ctg" id="product-container-ctg">
-      <button class="pre-btn-ctg"><img src="images/arrow.png" alt=""></button>
-      <button class="nxt-btn-ctg"><img src="images/arrow.png" alt=""></button>
       <!-- Product cards for categories will be dynamically added here -->
     </div>
   </section>

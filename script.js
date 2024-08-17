@@ -11,31 +11,50 @@ toggleBtn.onclick = function () {
     : "fa-solid fa-bars";
 }
 
+
 // hero section slideshow
 let i = 0;
 let images = [];
 let time = 3000;
 
+// Putanje do slika
 images[0] = 'images/Plavo-Strukirano-Odelo.jpg';
 images[1] = 'images/Sivo-Odelo-sa-Prslukom.jpg';
 images[2] = 'images/Krem-Odelo.jpeg';
 
 function changeImg() {
-  document.slide.src = images[i];
+  // Preuzmi sve slike u hero sekciji
+  let slides = document.querySelectorAll('.hero-img');
+  
+  // Ukloni 'active' klasu sa trenutne slike
+  slides[i].classList.remove('active');
+  
+  // Povećaj indeks
+  i = (i + 1) % images.length;
 
-  if (i < images.length - 1) {
-    i++;
-  } else {
-    i = 0;
-  }
+  // Promeni izvor slike
+  slides[i].src = images[i];
 
+  // Dodaj 'active' klasu novoj slici
+  slides[i].classList.add('active');
+
+  // Ponovo pokreni funkciju posle određenog vremena
   setTimeout(changeImg, time);
 }
 
 window.onload = () => {
+  // Dodaj 'active' klasu na prvu sliku
+  let slides = document.querySelectorAll('.hero-img');
+  if (slides.length > 0) {
+    slides[0].classList.add('active');
+  }
+  
+  // Pokreni promenu slika
   changeImg();
   initializeCarousel();
 }
+
+
 
 // Ensure this function is declared only once
 const initializeCarousel = () => {
@@ -51,6 +70,7 @@ const initializeCarousel = () => {
     if (nxtBtnCtg[i]) {
       nxtBtnCtg[i].addEventListener('click', () => {
         item.scrollLeft += containerWidth;
+        console.log('jes');
       });
     }
 
@@ -107,18 +127,17 @@ const btns = [
 ];
 
 // Generate category icons
-document.getElementById('category-icons-wrapper').innerHTML = btns.map((btn) => {
-  var { name, icon } = btn;
-  return (
-    `
+const categoryIconsWrapper = document.getElementById('category-icons-wrapper');
+categoryIconsWrapper.innerHTML = btns.map((btn) => {
+  const { id, name, icon } = btn;
+  return `
     <div class="category-icons">
-      <div class="category-icon-item" onclick="filterItems('${name}')">${icon}</div>
+      <div class="category-icon-item${id === 8 ? ' category-icon-item-last' : ''}" onclick="filterItems('${name}')">${icon}</div>
       <div class="category-item-title">
         <span>${name}</span>
       </div>
     </div>
-    `
-  );
+  `;
 }).join('');
 
 // Product data
@@ -211,8 +230,8 @@ const displayItem = (items) => {
   }
 
   document.getElementById('product-container-ctg').innerHTML = items.map((item) => {
-    var { image, title, price, category } = item;
-    return (`
+    const { image, title, price, category } = item;
+    return `
       <div class="product-card">
         <div class="product-image">
           <span class="discount-tag">30% off</span>
@@ -225,7 +244,7 @@ const displayItem = (items) => {
           <span class="price">${price}</span><span class="actual-price">9490,00</span>
         </div>
       </div>
-    `);
+    `;
   }).join('');
 
   // Reinitialize carousel logic after updating the DOM
@@ -234,7 +253,6 @@ const displayItem = (items) => {
 
 // Initialize with all products
 displayItem(products);
-
 
 // Category icons style change function
 document.addEventListener('DOMContentLoaded', () => {
