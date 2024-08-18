@@ -17,28 +17,28 @@ let i = 0;
 let images = [];
 let time = 3000;
 
-// Putanje do slika
+
 images[0] = 'images/Plavo-Strukirano-Odelo.jpg';
 images[1] = 'images/Sivo-Odelo-sa-Prslukom.jpg';
 images[2] = 'images/Krem-Odelo.jpeg';
 
 function changeImg() {
-  // Preuzmi sve slike u hero sekciji
+
   let slides = document.querySelectorAll('.hero-img');
   
-  // Ukloni 'active' klasu sa trenutne slike
+  
   slides[i].classList.remove('active');
   
   // Povećaj indeks
   i = (i + 1) % images.length;
 
-  // Promeni izvor slike
+  
   slides[i].src = images[i];
 
-  // Dodaj 'active' klasu novoj slici
+  
   slides[i].classList.add('active');
 
-  // Ponovo pokreni funkciju posle određenog vremena
+  
   setTimeout(changeImg, time);
 }
 
@@ -49,14 +49,14 @@ window.onload = () => {
     slides[0].classList.add('active');
   }
   
-  // Pokreni promenu slika
+  
   changeImg();
   initializeCarousel();
 }
 
 
 
-// Ensure this function is declared only once
+
 const initializeCarousel = () => {
   const productContainersCtg = [...document.querySelectorAll('.product-container-ctg')];
   const nxtBtnCtg = [...document.querySelectorAll('.nxt-btn-ctg')];
