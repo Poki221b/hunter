@@ -43,7 +43,7 @@ function changeImg() {
 }
 
 window.onload = () => {
-  // Dodaj 'active' klasu na prvu sliku
+  
   let slides = document.querySelectorAll('.hero-img');
   if (slides.length > 0) {
     slides[0].classList.add('active');
