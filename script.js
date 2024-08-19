@@ -29,7 +29,7 @@ function changeImg() {
   
   slides[i].classList.remove('active');
   
-  // Povećaj indeks
+  // Povecaj indeks
   i = (i + 1) % images.length;
 
   
